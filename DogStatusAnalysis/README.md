@@ -8,6 +8,7 @@ pip download -r requirements.txt
 ```
 
 **Download dataset**
+
 Download training dataset from [https://www.kaggle.com/datasets/danielshanbalico/dog-emotion]. Put it inside the train folder.
 Run the training code block inside ``resnet18Training.ipynb`` to get resnet18 model weight. Drag it outside to the same path with ``DogEmotion.py``.
 
