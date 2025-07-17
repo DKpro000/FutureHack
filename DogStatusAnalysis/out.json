@@ -1,0 +1,135 @@
+{
+  "dominant_emotion": "relaxed",
+  "emotion_confidence": 0.42085713148117065,
+  "audio_behavior": "Fear",
+  "audio_behavior_confidence": 0.030168764293193817,
+  "audio_phrase": "rough menacing bark",
+  "audio_phrase_confidence": 0.0353667326271534,
+  "scene_context": [
+    "a husky dog rolling around on the floor\n",
+    "a husky dog laying on its back on a tile floor\n",
+    "a white dog laying on its back on a tile floor\n"
+  ],
+  "scene_keywords": [
+    "rolling",
+    "tile",
+    "laying",
+    "floor",
+    "back",
+    "white",
+    "around",
+    "husky"
+  ],
+  "detailed_emotions": [
+    {
+      "emotion": "relaxed",
+      "confidence": 0.37393325567245483,
+      "all_probabilities": {
+        "angry": 0.20981192588806152,
+        "happy": 0.15904653072357178,
+        "relaxed": 0.37393325567245483,
+        "sad": 0.25720831751823425
+      }
+    },
+    {
+      "emotion": "relaxed",
+      "confidence": 0.4813786447048187,
+      "all_probabilities": {
+        "angry": 0.08798059076070786,
+        "happy": 0.20452365279197693,
+        "relaxed": 0.4813786447048187,
+        "sad": 0.22611704468727112
+      }
+    },
+    {
+      "emotion": "relaxed",
+      "confidence": 0.4072594940662384,
+      "all_probabilities": {
+        "angry": 0.08910024166107178,
+        "happy": 0.26281625032424927,
+        "relaxed": 0.4072594940662384,
+        "sad": 0.24082396924495697
+      }
+    }
+  ],
+  "audio_details": {
+    "predicted_class": "Fear",
+    "class_confidence": 0.030168764293193817,
+    "predicted_phrase": "rough menacing bark",
+    "confidence_phrase": 0.0353667326271534,
+    "top_k_phrases": [
+      [
+        "rough menacing bark",
+        "Aggressive",
+        0.0353667326271534
+      ],
+      [
+        "high-pitched trembling fearful bark",
+        "Fear",
+        0.031957633793354034
+      ],
+      [
+        "short piercing pain bark",
+        "Pain",
+        0.031761154532432556
+      ]
+    ],
+    "all_probabilities_class": {
+      "Alert": 0.02726263925433159,
+      "Territorial": 0.02708219178020954,
+      "Excited": 0.028266141191124916,
+      "Demand": 0.026156898587942123,
+      "Fear": 0.030168764293193817,
+      "Aggressive": 0.02966352179646492,
+      "Pain": 0.029733607545495033,
+      "Lonely": 0.02547820843756199,
+      "Howl": 0.026188034564256668
+    },
+    "all_probabilities_phrase": {
+      "sharp mid-pitch alert bark": 0.02701791189610958,
+      "brief clear alarm bark": 0.02576669491827488,
+      "short crisp warning bark": 0.029332980513572693,
+      "fast staccato alert bark": 0.0269329696893692,
+      "deep sustained territorial bark": 0.028430264443159103,
+      "low throaty guard bark": 0.027755962684750557,
+      "prolonged defensive bark": 0.025915369391441345,
+      "slow booming territorial bark": 0.02622717060148716,
+      "high-pitched rapid excited yips": 0.029917702078819275,
+      "quick playful bark": 0.02990955486893654,
+      "series of lively yips": 0.023418478667736053,
+      "fast bright excited bark": 0.0298188254237175,
+      "steady attention-seeking bark": 0.02561023086309433,
+      "regular rhythmic demand bark": 0.02652139589190483,
+      "persistent repetitive request bark": 0.02852925844490528,
+      "moderate-pitch insistence bark": 0.023966707289218903,
+      "high-pitched trembling fearful bark": 0.031957633793354034,
+      "quivering anxious bark": 0.027161888778209686,
+      "shaky high anxious bark": 0.03044900856912136,
+      "piercing nervous bark": 0.031106526032090187,
+      "low guttural aggressive bark": 0.027203794568777084,
+      "deep harsh threat bark": 0.029277633875608444,
+      "rough menacing bark": 0.0353667326271534,
+      "raspy growling attack bark": 0.026805926114320755,
+      "single sharp pain yelp": 0.026698311790823936,
+      "shrill acute pain bark": 0.030035851523280144,
+      "sudden high pain yelp": 0.030439114198088646,
+      "short piercing pain bark": 0.031761154532432556,
+      "slow spaced lonely bark": 0.024904847145080566,
+      "mournful drawn-out bark": 0.024936428293585777,
+      "distant monotone lonely bark": 0.02402719482779503,
+      "long-interval melancholy bark": 0.02804436720907688,
+      "long plaintive canine howl": 0.024176541715860367,
+      "careless, spontaneous howl": 0.02899259515106678,
+      "sustained mournful howl": 0.02500428631901741,
+      "extended melodic dog howl": 0.026578707620501518
+    }
+  },
+  "dog_thoughts": {
+    "mood": "relaxed",
+    "likely_thoughts": [
+      "I am feeling relaxed"
+    ],
+    "behavioral_interpretation": "The dog is displaying relaxed behavior.",
+    "needs_attention": false
+  }
+}
