@@ -29,7 +29,7 @@ python app.py
 2. Enter ``http://127.0.0.1:5000`` on search engine and the webpage should appear:
 ![Alt text](images/mainpage.png)
 
-# Example
+# Example Output
 **Example 1**
 
 Video found from YouTube [https://www.youtube.com/watch?v=01le4Ln8da0].
