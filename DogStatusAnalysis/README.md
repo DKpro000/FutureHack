@@ -18,6 +18,8 @@ Run the training code block inside ``resnet18Training.ipynb`` to get resnet18 mo
 
 ***website/routes.py:*** line 11
 
+***DogEmotion.py:*** line 171 & 173
+
 # Execution
 1. Open terminal inside website folder and execute command below.
 ``` bash
