@@ -7,7 +7,12 @@ This project is about the dog status inferencer by analyse dog condition through
 pip download -r requirements.txt
 ```
 
+**Download dataset**
+Download training dataset from [https://www.kaggle.com/datasets/danielshanbalico/dog-emotion]. Put it inside the train folder.
+Run the training code block inside ``resnet18Training.ipynb`` to get resnet18 model weight. Drag it outside to the same path with ``DogEmotion.py``.
+
 **Edit path**
+
 ***website/app.py:*** line 11 & 12
 
 ***website/routes.py:*** line 11
