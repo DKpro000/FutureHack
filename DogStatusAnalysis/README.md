@@ -53,7 +53,18 @@ Output
 **Example 3**
 
 The video was taken from a husky club I passed by while shopping. This is also used to simulate a real scene.
+
 https://github.com/user-attachments/assets/d21c9511-0ae5-489a-b53f-b22628da7b88
+
+Output
+<img width="1626" height="370" alt="image" src="https://github.com/user-attachments/assets/f34fcc39-1e2a-405f-bb03-a43980c1e0d0" />
+<img width="1624" height="483" alt="image" src="https://github.com/user-attachments/assets/092a4b63-58cb-4e89-bcf8-9c1635b87052" />
+<img width="1623" height="153" alt="image" src="https://github.com/user-attachments/assets/21bbfbab-2bf8-4e45-96bf-f65062b5e6d8" />
+<img width="1625" height="381" alt="image" src="https://github.com/user-attachments/assets/ad488a6a-f4fc-4783-8cda-8a54ff08a250" />
+
+
+
+
 
 
 
