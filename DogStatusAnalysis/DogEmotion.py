@@ -168,9 +168,9 @@ class VideoAnalysisSystem:
     def _init_resnet_model(self):
         print("[INFO] Loading ResNet18 model...")
         self.resnet_model = models.resnet18(pretrained=True)
-        if os.path.exists('dog_emotion.pth'):
+        if os.path.exists(r"path\to\dog_emotion.pth"):
             try:
-                checkpoint = torch.load('dog_emotion.pth', map_location=self.device)
+                checkpoint = torch.load(r"path\to\dog_emotion.pth", map_location=self.device)
                 if 'fc.weight' in checkpoint:
                     num_classes = checkpoint['fc.weight'].shape[0]
                     print(f"[INFO] Detected {num_classes} emotion classes from checkpoint")
