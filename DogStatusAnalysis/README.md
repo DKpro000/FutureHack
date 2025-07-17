@@ -31,6 +31,7 @@ python app.py
 **Example 1**
 
 Video found from YouTube [https://www.youtube.com/watch?v=01le4Ln8da0].
+
 https://github.com/user-attachments/assets/fe70cddc-97e0-4491-b755-7a005c8d35cc
 
 Output
@@ -42,6 +43,7 @@ Output
 **Example 2**
 
 The video was shot by casually taking photos of dogs encountered while eating with family on the roadside to simulate the real scene.
+
 https://github.com/user-attachments/assets/b46aa029-67bc-49f5-969a-fc221b83f149
 
 Output
