@@ -140,6 +140,7 @@ class VideoAnalysisSystem:
                 "mournful drawn-out bark",
                 "distant monotone lonely bark",
                 "long-interval melancholy bark",
+                "no voice from dog"
             ],
             "Howl": [
                 "long plaintive canine howl",
@@ -207,10 +208,8 @@ class VideoAnalysisSystem:
     def _init_llm_model(self):
         print("[INFO] Loading LLM model...")
         try:
-            self.llm = pipeline(
-                "text-generation", model="microsoft/DialoGPT-medium",
-                device=0 if torch.cuda.is_available() else -1
-            )
+            self.llm = pipeline("text2text-generation", model="google/flan-t5-base", device=0 if torch.cuda.is_available() else -1)
+
         except Exception:
             print("[WARNING] Could not load LLM model, using rule-based analysis")
             self.llm = None
@@ -408,37 +407,63 @@ class VideoAnalysisSystem:
         emotion = analysis['dominant_emotion']
         audio_behavior = analysis['audio_behavior']
         scene_keywords = analysis['scene_keywords']
-        t = {'mood':'neutral','likely_thoughts':[],'behavioral_interpretation':'','needs_attention':False}
+        t = {
+            'mood': 'neutral',
+            'likely_thoughts': [],
+            'behavioral_interpretation': '',
+            'needs_attention': False,
+            'human_attention_advice': ''
+        }
+
         if emotion == 'happy' and audio_behavior in ['Excited','Demand']:
             t.update(mood='playful', likely_thoughts=['I want to play!','This is fun!','Pay attention to me!'],
-                     behavioral_interpretation='The dog appears playful and seeking interaction.')
+                    behavioral_interpretation='The dog appears playful and seeking interaction.')
         elif emotion == 'sad' or audio_behavior in ['Lonely','Pain']:
             t.update(mood='distressed', likely_thoughts=['I feel lonely','I need comfort','Something is bothering me'],
-                     behavioral_interpretation='The dog may be distressed and needs comfort or attention.',
-                     needs_attention=True)
+                    behavioral_interpretation='The dog may be distressed and needs comfort or attention.',
+                    needs_attention=True)
         elif audio_behavior in ['Alert','Territorial']:
             t.update(mood='vigilant', likely_thoughts=['Something is happening','I need to protect my territory','Alert! Someone is coming'],
-                     behavioral_interpretation='The dog is alert to external stimuli.')
+                    behavioral_interpretation='The dog is alert to external stimuli.')
         elif emotion == 'angry' or audio_behavior == 'Aggressive':
             t.update(mood='defensive', likely_thoughts=['I feel threatened','Stay away from me','I need to defend myself'],
-                     behavioral_interpretation='The dog shows defensive/aggressive behavior.',
-                     needs_attention=True)
+                    behavioral_interpretation='The dog shows defensive/aggressive behavior.',
+                    needs_attention=True)
         elif emotion == 'calm':
             t.update(mood='relaxed', likely_thoughts=['I feel comfortable','Everything is peaceful','I am content'],
-                     behavioral_interpretation='The dog seems relaxed.')
+                    behavioral_interpretation='The dog seems relaxed.')
         elif emotion and emotion not in ['unknown','neutral']:
             t.update(mood=emotion, likely_thoughts=[f'I am feeling {emotion}'],
-                     behavioral_interpretation=f'The dog is displaying {emotion} behavior.')
+                    behavioral_interpretation=f'The dog is displaying {emotion} behavior.')
         else:
             t.update(mood='neutral', likely_thoughts=['Observing the environment'],
-                     behavioral_interpretation='Neutral / observing.')
+                    behavioral_interpretation='Neutral / observing.')
+
         if 'food' in scene_keywords or 'eating' in scene_keywords:
             t['likely_thoughts'].append('Food! I want some!')
         if 'person' in scene_keywords or 'human' in scene_keywords:
             t['likely_thoughts'].append('My human is here!')
         if 'outside' in scene_keywords or 'park' in scene_keywords:
             t['likely_thoughts'].append('Time for adventure!')
+
+        if t['needs_attention'] and self.llm:
+            try:
+                prompt = (f"Give brief advice on what the dog owner should DO if the dog looks {mood} and exhibits this behavior: {behavioral_interpretation}.")
+                response = self.llm(prompt, max_length=100, num_return_sequences=1)[0]['generated_text']
+                print("Llm suggestion:", response)
+                advice = response.replace(prompt, "").strip()
+                t['human_attention_advice'] = advice
+            except Exception as e:
+                print(f"[WARNING] LLM failed to generate human advice: {e}")
+                t['human_attention_advice'] = "The dog may need attention. Please monitor its behavior closely."
+        elif t['needs_attention']:
+            t['human_attention_advice'] = "The dog may need attention. Please check if it's in pain, lonely, or threatened."
+        else:
+            t['human_attention_advice'] = "No immediate action needed. The dog appears stable."
+
         return t
+
+
 
     def analyze_video(self, video_path: str) -> Dict[str, Any]:
         print(f"[INFO] Starting video analysis for: {video_path}")
