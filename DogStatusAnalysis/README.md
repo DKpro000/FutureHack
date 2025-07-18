@@ -52,7 +52,8 @@ Output
 <img width="1624" height="375" alt="image" src="https://github.com/user-attachments/assets/55acab0a-155a-44dc-bdfa-a542f3097aef" />
 <img width="1626" height="482" alt="image" src="https://github.com/user-attachments/assets/ed9ac875-7297-4a44-85a2-6630fc06de5c" />
 <img width="1623" height="147" alt="image" src="https://github.com/user-attachments/assets/a35e6ecb-69ab-4cad-83b6-e75936690eac" />
-<img width="1623" height="437" alt="image" src="https://github.com/user-attachments/assets/59e56c84-ba4f-4cb9-b271-ba579b7e99d9" />
+<img width="1622" height="466" alt="image" src="https://github.com/user-attachments/assets/74603080-3640-4f20-b438-91d60fa79c3b" />
+
 
 **Example 3**
 
